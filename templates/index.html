@@ -1,0 +1,95 @@
+<html>
+
+  <head>
+    
+    
+
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+
+  </head>
+    <body style="background-color: #E5E4E2;padding: 25px;">
+        <h1>Hello!
+        {% if username %}
+            {{ username }}
+        {% endif %}
+        </h1>
+        {% if not username %}
+            <div style="padding:10px;">
+              <p>to view a users timeline go to /?username=<b>username</b> 
+                <br>
+                if the username is not in our database we will redirect you back here!</p>
+              <p><a href="/?username=Franc">example</a></p>
+              <p>Posts can be found <a href="/posts">here</a></p>
+              <p>Users and there follows can be found <a href="/users">here</a></p>
+            </div>
+        {% else %}
+            <center><h4>Your timeline:</h4></center>
+            <ul>
+                
+
+                
+            </ul>
+
+
+            <div class="col-md-6 col-lg-7 col-xl-8">
+
+              <ul class="list-unstyled" style="padding: 20px;">
+
+
+                {% for tweet in posts%}
+                <li></li>
+                
+
+                            <li class="d-flex justify-content-between mb-4">
+                              <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                                class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60"> -->
+                              <div class="card">
+                                <div class="card-header d-flex justify-content-between p-3">
+                                  <p class="fw-bold mb-0">{{username}}</p>
+                                  <p class="text-muted small mb-0"><i class="far fa-clock"></i> {{tweet.time}}</p>
+                                </div>
+                                <div class="card-body">
+                                  <p class="mb-0">
+                                    {{tweet.status}}
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                
+                
+                {% endfor %}
+
+
+                
+                 
+    
+              
+              </ul>
+      
+            </div>
+
+
+        {% endif %}
+
+
+        <!-- <section class="vh-100" style="background-color: #5f59f7;">
+         
+        </section> -->
+
+        
+    </body>
+</html>
